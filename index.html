@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#176b55">
+<title>SAAD DATA</title>
+<style>
+:root{--green:#176b55;--pale:#e9f4ef;--ink:#202923;--muted:#6b756f;--line:#dce5df;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:#f5f7f5;color:var(--ink);font-family:Arial,Tahoma,sans-serif}
+header{background:linear-gradient(135deg,#087f5b,#075c43);color:white;padding:20px 18px 22px;border-radius:0 0 24px 24px;display:flex;align-items:center;gap:12px;box-shadow:0 7px 20px #087f5b22;position:relative}
+.brand-mark{width:48px;height:48px;border-radius:15px;background:#ffffff22;border:1px solid #ffffff66;display:grid;place-items:center;font-size:18px;font-weight:900;letter-spacing:-1px;flex-shrink:0}
+.local-badge{margin-right:auto;background:#ffffff20;border:1px solid #ffffff55;border-radius:999px;padding:6px 9px;font-size:10px;white-space:nowrap}
+header h1{letter-spacing:.4px}
+header h1{font-size:23px;margin:0 0 5px}header p{margin:0;opacity:.88;font-size:14px}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:12px 10px;position:sticky;top:0;background:#f5f7f5;z-index:2}
+nav button{border:1px solid var(--line);background:white;border-radius:12px;padding:12px 2px;font-size:12px;color:var(--ink);box-shadow:0 2px 7px #102a1a08}
+nav button.active{background:var(--green);color:white;border-color:var(--green)}
+main{padding:0 12px 28px;max-width:760px;margin:auto}.panel{display:none}.panel.active{display:block}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:13px;box-shadow:0 5px 18px #122d1909}
+h2{font-size:19px;margin:0 0 14px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:var(--pale);padding:14px;border-radius:13px}.stat small{display:block;color:var(--muted);margin-bottom:8px}.stat strong{font-size:21px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
+input,select,textarea{width:100%;border:1px solid #ccd8d0;border-radius:10px;padding:12px;font:inherit;background:#fff;color:var(--ink)}
+button.primary,.primary{background:var(--green);color:white;border:0;border-radius:10px;padding:12px 15px;font:inherit;font-weight:bold;cursor:pointer}
+button.secondary{background:var(--pale);color:var(--green);border:0;border-radius:9px;padding:9px 12px;font:inherit}
+button.danger{background:#fff0ef;color:var(--red);border:0;border-radius:9px;padding:8px 10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.item{border-bottom:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.item:last-child{border:0}
+.item b{display:block;margin-bottom:4px}.muted{color:var(--muted);font-size:13px}.empty{color:var(--muted);text-align:center;padding:20px 5px}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:9px 5px;border-bottom:1px solid var(--line);text-align:right}th{color:var(--muted)}
+.total{font-size:20px;font-weight:bold;color:var(--green);margin-top:12px;padding:12px;background:var(--pale);border-radius:12px}.note{font-size:12px;color:var(--muted);line-height:1.7}
+@media(min-width:560px){.stats{grid-template-columns:repeat(4,1fr)}nav button{font-size:14px}}
+.invoice-paper{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:14px}.invoice-head{text-align:center;border-bottom:2px solid var(--green);padding-bottom:12px;margin-bottom:10px}.invoice-head h3{color:var(--green);margin:0 0 5px;font-size:22px}.invoice-meta{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin:8px 0 14px}.invoice-paper table{font-size:12px}.invoice-paper th{background:var(--pale);color:var(--ink)}.invoice-grand{font-size:20px;font-weight:bold;color:var(--green);text-align:left;padding-top:12px}.small-btn{padding:8px 10px!important;font-size:12px!important}@media print{header,nav,.actions,.note,.no-print{display:none!important}body{background:#fff}.panel{display:none!important}#reports.panel.active{display:block!important}.card{box-shadow:none;border:0}}\n</style>
+</head>
+<body>
+<header><h1>SAAD · البهارات</h1><p>إدارة الأصناف والفواتير والماركت — نسخة محلية</p></header>
+<nav>
+<button class="active" data-tab="home">الرئيسية</button>
+<button data-tab="products">الأصناف</button>
+<button data-tab="invoice">فاتورة جديدة</button>
+<button data-tab="reports">التقارير</button>
+</nav>
+<main>
+<section id="home" class="panel active">
+<div class="card"><h2>لوحة التحكم</h2><div class="stats">
+<div class="stat"><small>عدد الأصناف</small><strong id="statProducts">0</strong></div>
+<div class="stat"><small>عدد الفواتير</small><strong id="statInvoices">0</strong></div>
+<div class="stat"><small>إجمالي المبيعات</small><strong id="statSales">0</strong></div>
+<div class="stat"><small>عدد الماركت</small><strong id="statMarkets">0</strong></div>
+</div></div>
+<div class="card"><h2>آخر الفواتير</h2><div id="recentInvoices" class="empty">لا توجد فواتير بعد.</div></div>
+<div class="card"><h2>نسخة احتياطية</h2><p class="note">بيانات هذا الجهاز مستقلة تماماً عن أي جهاز آخر. استخدم النسخ الاحتياطي للاحتفاظ بنسخة من بياناتك.</p><div class="actions"><button class="primary" onclick="exportData()">تصدير البيانات JSON</button><label class="secondary" style="display:inline-block;cursor:pointer">استيراد نسخة<input type="file" accept=".json,application/json" onchange="importData(event)" style="display:none"></label></div></div>
+</section>
+<section id="products" class="panel">
+<div class="card"><h2 id="productFormTitle">إضافة صنف</h2><input id="productId" type="hidden">
+<label>اسم الصنف</label><input id="productName" placeholder="مثال: فلفل أسود">
+<div class="row"><div><label>سعر بيع البكت (4 حبات)</label><input id="productPrice" type="number" min="0" step=".01" placeholder="0.00"></div><div><label>كمية الصنف الموجودة في الشاحنة (بكت)</label><input id="productStock" type="number" min="0" step="1" value="0"></div></div><p class="note">كل بكت = 4 حبات. مثال: كركم، 8 بكت = 32 حبة.</p><input id="productUnit" type="hidden" value="بكت (4 حبات)">
+<div class="actions"><button class="primary" onclick="saveProduct()">حفظ الصنف</button><button class="secondary" onclick="clearProductForm()">إلغاء</button></div></div>
+<div class="card"><h2>قائمة الأصناف</h2><div id="productList" class="empty">لا توجد أصناف.</div></div>
+<div class="card"><h2>إدارة الماركت</h2><label>اسم الماركت الجديد</label><input id="marketName" placeholder="اسم الماركت"><div class="actions"><button class="primary" onclick="addMarket()">إضافة ماركت</button></div><div id="marketList"></div></div>
+</section>
+<section id="invoice" class="panel">
+<div class="card"><h2 id="invoiceFormTitle">إنشاء فاتورة</h2><label>اسم الماركت / الزبون</label><input id="invoiceMarket" list="marketOptions" placeholder="اكتب اسم الماركت"><datalist id="marketOptions"></datalist>
+<label>التاريخ</label><input id="invoiceDate" type="date">
+<hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+<div class="row"><div><label>الصنف</label><select id="lineProduct" onchange="setLinePrice()"></select></div><div><label>الكمية (بكت، كل بكت 4 حبات)</label><input id="lineQty" type="number" min="1" step="1" value="1"></div></div>
+<div class="row"><div><label>سعر الوحدة</label><input id="linePrice" type="number" min="0" step=".01" value="0"></div><div style="display:flex;align-items:end"><button class="primary" style="width:100%" onclick="addLine()">إضافة للفاتورة</button></div></div>
+<div id="invoiceLines" class="empty">أضف أصنافاً إلى الفاتورة.</div><div class="total">الإجمالي النهائي: <span id="invoiceTotal">0.00</span></div><div id="invoicePreview"></div>
+<div class="actions"><button id="saveInvoiceButton" class="primary" onclick="saveInvoice()">حفظ الفاتورة</button><button class="secondary" onclick="clearInvoice()">تفريغ</button></div>
+</div>
+</section>
+<section id="reports" class="panel">
+<div class="card"><h2>مخزون الشاحنة</h2><p class="note">كل بكت يحتوي على 4 حبات. الكمية المتبقية تُحدّث تلقائياً عند حفظ الفواتير أو حذفها.</p><div id="stockReport"></div></div>
+<div class="card"><h2>تقارير المبيعات</h2><div class="stats">
+<div class="stat"><small>إجمالي المبيعات</small><strong id="reportSales">0</strong></div><div class="stat"><small>الفواتير</small><strong id="reportCount">0</strong></div><div class="stat"><small>عدد الماركتات</small><strong id="reportMarkets">0</strong></div></div>
+<label>اختر نوع التقرير</label><select id="reportType" onchange="renderReports()"><option value="market">الأصناف الأكثر طلباً في ماركت محدد</option><option value="all">الأصناف الأكثر مبيعاً في جميع الماركتات</option><option value="invoices">سجل الفواتير</option></select>
+<div id="marketReportPicker"><label>الماركت</label><select id="reportMarket" onchange="renderReports()"></select></div>
+<div id="reportContent"></div>
+<div class="actions"><button class="primary" onclick="shareReportWhatsApp()">مشاركة التقرير عبر واتساب</button><button class="secondary" onclick="shareReport()">مشاركة / حفظ التقرير</button><button class="secondary" onclick="window.print()">طباعة التقرير</button><button class="secondary" onclick="renderReports()">تحديث التقرير الآن</button></div></div>
+</section>
+<p class="note">بيانات هذا التطبيق محفوظة على هذا الجهاز فقط. لا توجد مزامنة أو مشاركة بيانات مع الجهاز الآخر.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+let products=read('saad_products',[]), markets=read('saad_markets',[]), invoices=read('saad_invoices',[]), lines=[], editingInvoiceId=null, tabHistory=[], lastSavedInvoiceId=null;
+products=products.map(p=>({...p,stock:Number(p.stock)||0,unit:'بكت (4 حبات)'}));
+invoices=invoices.map(i=>({...i,lines:(i.lines||[]).map(l=>({...l,qty:Number(l.qty)||0,price:Number(l.price)||0}))}));
+
+const money=n=>(Number(n)||0).toLocaleString('ar-LB',{minimumFractionDigits:2,maximumFractionDigits:2});
+function persist(){localStorage.setItem('saad_products',JSON.stringify(products));localStorage.setItem('saad_markets',JSON.stringify(markets));localStorage.setItem('saad_invoices',JSON.stringify(invoices));renderAll()}
+function activateTab(tab,remember=true){let current=document.querySelector('.panel.active');if(current&&current.id!==tab&&remember)tabHistory.push(current.id);document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===tab));if($(tab))$(tab).classList.add('active');renderAll();window.scrollTo(0,0)}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{let current=document.querySelector('.panel.active');if(current&&current.id===b.dataset.tab)return;activateTab(b.dataset.tab,true)}));
+function handleAndroidBack(){if(tabHistory.length){activateTab(tabHistory.pop(),false);return true}let current=document.querySelector('.panel.active');if(current&&current.id!=='home'){activateTab('home',false);return true}return false}
+function saveProduct(){let name=$('productName').value.trim(),price=Number($('productPrice').value),stock=Number($('productStock').value)||0,unit='بكت (4 حبات)',id=$('productId').value;if(!name||$('productPrice').value===''||price<0){alert('أدخل اسم الصنف وسعراً صحيحاً.');return}if(id){products=products.map(p=>p.id===id?{...p,name,price,stock,unit}:p)}else products.push({id:String(Date.now()),name,price,stock,unit});clearProductForm();persist()}
+function clearProductForm(){$('productId').value='';$('productName').value='';$('productPrice').value='';$('productStock').value='0';$('productUnit').value='بكت (4 حبات)';$('productFormTitle').textContent='إضافة صنف'}
+function editProduct(id){let p=products.find(x=>x.id===id);if(!p)return;$('productId').value=p.id;$('productName').value=p.name;$('productPrice').value=p.price;$('productStock').value=p.stock||0;$('productUnit').value='بكت (4 حبات)';$('productFormTitle').textContent='تعديل الصنف';window.scrollTo(0,0)}
+function deleteProduct(id){if(confirm('هل تريد حذف هذا الصنف؟')){products=products.filter(p=>p.id!==id);persist()}}
+function addMarket(){let n=$('marketName').value.trim();if(!n)return alert('اكتب اسم الماركت.');if(!markets.includes(n))markets.push(n);$('marketName').value='';persist()}
+function deleteMarket(n){if(!confirm('حذف الماركت؟ ستبقى فواتيره السابقة محفوظة.'))return;markets=markets.filter(x=>x!==n);persist()}
+function setLinePrice(){let p=products.find(x=>x.id===$('lineProduct').value);$('linePrice').value=p?p.price:0}
+function addLine(){let p=products.find(x=>x.id===$('lineProduct').value),qty=Number($('lineQty').value),price=Number($('linePrice').value);if(!p)return alert('أضف صنفاً أولاً.');if(qty<=0||price<0)return alert('تحقق من الكمية والسعر.');let available=(Number(p.stock)||0);if(editingInvoiceId){let old=invoices.find(i=>i.id===editingInvoiceId);if(old)old.lines.filter(l=>l.productId===p.id).forEach(l=>available+=Number(l.qty)||0)}if(qty>available)return alert('الكمية المطلوبة أكبر من مخزون الشاحنة المتوفر ('+available+' بكت).');lines.push({productId:p.id,name:p.name,qty,price,unit:'بكت (4 حبات)'});renderLines()}
+function removeLine(i){lines.splice(i,1);renderLines()}
+function renderLines(){$('invoiceLines').innerHTML=lines.length?lines.map((l,i)=>`<div class="item"><div><b>${esc(l.name)}</b><span class="muted">${l.qty} × ${money(l.price)} = ${money(l.qty*l.price)}</span></div><button class="danger" onclick="removeLine(${i})">حذف</button></div>`).join(''):'<div class="empty">أضف أصنافاً إلى الفاتورة.</div>';$('invoiceTotal').textContent=money(lines.reduce((s,l)=>s+l.qty*l.price,0))}
+function clearInvoice(){lines=[];editingInvoiceId=null;$('invoiceMarket').value='';$('invoiceDate').value=new Date().toISOString().slice(0,10);$('invoiceFormTitle').textContent='إنشاء فاتورة';$('saveInvoiceButton').textContent='حفظ الفاتورة';$('invoicePreview').innerHTML='';renderLines()}
+function saveInvoice(){
+ let market=$('invoiceMarket').value.trim(),date=$('invoiceDate').value;
+ if(!market||!lines.length)return alert('أدخل اسم الماركت وأضف صنفاً واحداً على الأقل.');
+ if(!date)date=new Date().toISOString().slice(0,10);
+ let old=editingInvoiceId?invoices.find(i=>i.id===editingInvoiceId):null;
+ let availableById={};
+ products.forEach(p=>availableById[p.id]=Number(p.stock)||0);
+ if(old)old.lines.forEach(l=>availableById[l.productId]=(availableById[l.productId]||0)+(Number(l.qty)||0));
+ let needed={};lines.forEach(l=>needed[l.productId]=(needed[l.productId]||0)+(Number(l.qty)||0));
+ for(let id in needed){if((availableById[id]||0)<needed[id]){let p=products.find(x=>x.id===id);return alert('المخزون غير كافٍ للصنف: '+(p?p.name:'غير معروف')+'؛ المتاح '+(availableById[id]||0)+' بكت.');}}
+ if(!markets.includes(market))markets.push(market);
+ if(old){old.lines.forEach(l=>{let p=products.find(p=>p.id===l.productId)||products.find(p=>p.name===l.name);if(p)p.stock=(Number(p.stock)||0)+(Number(l.qty)||0)});invoices=invoices.filter(i=>i.id!==editingInvoiceId);}
+ for(let l of lines){let p=products.find(p=>p.id===l.productId);if(p)p.stock=(Number(p.stock)||0)-l.qty;}
+ let savedId=editingInvoiceId||String(Date.now());
+ invoices.unshift({id:savedId,number:'SD-'+savedId.slice(-6),market,date,lines:lines.map(x=>({...x})),total:lines.reduce((sum,l)=>sum+l.qty*l.price,0)});
+ lastSavedInvoiceId=savedId;
+ let saved=invoices.find(i=>i.id===lastSavedInvoiceId);lines=[];editingInvoiceId=null;$('invoiceMarket').value='';$('invoiceDate').value=new Date().toISOString().slice(0,10);$('invoiceFormTitle').textContent='إنشاء فاتورة';$('saveInvoiceButton').textContent='حفظ الفاتورة';persist();showInvoicePreview(saved);alert('تم حفظ الفاتورة بنجاح. يمكنك إرسالها عبر واتساب من معاينة الفاتورة أو سجل الفواتير.');
+}
+
+function invoiceText(inv){
+ let text='SAAD DATA\nفاتورة مبيعات\nرقم الفاتورة: '+(inv.number||('SD-'+String(inv.id).slice(-6)))+'\nاسم الماركت: '+inv.market+'\nالتاريخ: '+inv.date+'\n\n';
+ text+='الصنف | الكمية (بكت) | سعر البكت | الإجمالي\n';
+ inv.lines.forEach(l=>{text+=l.name+' | '+l.qty+' | '+money(l.price)+' | '+money(l.qty*l.price)+'\n'});
+ text+='\nالإجمالي النهائي: '+money(inv.total)+'\nكل بكت = 4 حبات';
+ return text;
+}
+function shareInvoiceWhatsApp(id){let inv=invoices.find(x=>x.id===id);if(!inv)return;window.open('https://wa.me/?text='+encodeURIComponent(invoiceText(inv)),'_blank')}
+function showInvoicePreview(inv){
+ if(!inv){$('invoicePreview').innerHTML='';return}
+ $('invoicePreview').innerHTML=`<div class="invoice-paper"><div class="invoice-head"><h3>SAAD DATA</h3><div>فاتورة مبيعات</div></div><div class="invoice-meta"><span><b>رقم الفاتورة:</b> ${esc(inv.number||('SD-'+String(inv.id).slice(-6)))}</span><span><b>التاريخ:</b> ${esc(inv.date)}</span></div><div style="margin-bottom:12px"><b>اسم الماركت:</b> ${esc(inv.market)}</div><table><thead><tr><th>الصنف</th><th>الكمية<br>(بكت)</th><th>سعر البكت</th><th>الإجمالي</th></tr></thead><tbody>${inv.lines.map(l=>`<tr><td>${esc(l.name)}</td><td>${l.qty}</td><td>${money(l.price)}</td><td>${money(l.qty*l.price)}</td></tr>`).join('')}</tbody></table><div class="invoice-grand">الإجمالي النهائي: ${money(inv.total)}</div><div class="note">كل بكت = 4 حبات</div><div class="actions no-print"><button class="primary" onclick="shareInvoiceWhatsApp('${inv.id}')">إرسال الفاتورة عبر واتساب</button></div></div>`;
+}
+function deleteInvoice(id){if(confirm('حذف هذه الفاتورة وإرجاع كمياتها إلى مخزون الشاحنة؟')){let inv=invoices.find(x=>x.id===id);if(inv)inv.lines.forEach(l=>{let p=products.find(p=>p.id===l.productId)||products.find(p=>p.name===l.name);if(p)p.stock=(Number(p.stock)||0)+(Number(l.qty)||0)});invoices=invoices.filter(x=>x.id!==id);persist()}}
+function editInvoice(id){let inv=invoices.find(x=>x.id===id);if(!inv)return;editingInvoiceId=id;$('invoiceMarket').value=inv.market;$('invoiceDate').value=inv.date;lines=inv.lines.map(l=>({...l}));$('invoicePreview').innerHTML='';$('invoiceFormTitle').textContent='تعديل الفاتورة';$('saveInvoiceButton').textContent='حفظ التعديلات';activateTab('invoice',true);renderLines();window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderProducts(){$('productList').innerHTML=products.length?products.map(p=>`<div class="item"><div><b>${esc(p.name)}</b><span class="muted">سعر البكت: ${money(p.price)} · الشاحنة: ${p.stock||0} بكت</span></div><div class="actions"><button class="secondary" onclick="editProduct('${p.id}')">تعديل</button><button class="danger" onclick="deleteProduct('${p.id}')">حذف</button></div></div>`).join(''):'<div class="empty">لا توجد أصناف.</div>';$('lineProduct').innerHTML=products.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');if(products.length)setLinePrice();$('marketOptions').innerHTML=markets.map(m=>`<option value="${esc(m)}">`).join('');$('marketList').innerHTML=markets.length?markets.map(m=>`<div class="item"><b>${esc(m)}</b><button class="danger" onclick="deleteMarket('${m.replace(/'/g,"\\'")}')">حذف</button></div>`).join(''):'<div class="empty">لا توجد ماركتات.</div>'}
+function buildReportText(){
+ let type=$('reportType').value, market=$('reportMarket').value, txt='تقرير SAAD للبهارات\n';
+ if(type==='market'){
+  txt+='الماركت: '+(market||'غير محدد')+'\n';
+  let totals={};
+  invoices.filter(i=>i.market===market).forEach(i=>i.lines.forEach(l=>{let k=l.productId||l.name;totals[k]=totals[k]||{name:l.name,qty:0,total:0};totals[k].qty+=Number(l.qty)||0;totals[k].total+=(Number(l.qty)||0)*(Number(l.price)||0)}));
+  let arr=Object.values(totals).sort((a,b)=>b.qty-a.qty);
+  txt+='الأصناف الأكثر طلباً (بكت):\n'+(arr.map((x,i)=>`${i+1}. ${x.name}: ${x.qty} بكت — المبيعات ${money(x.total)}`).join('\n')||'لا توجد مبيعات لهذا الماركت.');
+ } else if(type==='all'){
+  let totals={};
+  invoices.forEach(i=>i.lines.forEach(l=>{let k=l.productId||l.name;totals[k]=totals[k]||{name:l.name,qty:0,total:0,markets:new Set()};totals[k].qty+=Number(l.qty)||0;totals[k].total+=(Number(l.qty)||0)*(Number(l.price)||0);totals[k].markets.add(i.market)}));
+  let arr=Object.values(totals).sort((a,b)=>b.qty-a.qty);
+  txt+='الأصناف الأكثر مبيعاً في جميع الماركتات (بكت):\n'+(arr.map((x,i)=>`${i+1}. ${x.name}: ${x.qty} بكت — ${x.markets.size} ماركت — ${money(x.total)}`).join('\n')||'لا توجد مبيعات بعد.');
+ } else {
+  txt+='سجل الفواتير:\n'+(invoices.map(i=>`${i.date} | ${i.market} | ${money(i.total)}`).join('\n')||'لا توجد فواتير.');
+ }
+ txt+='\n\nإجمالي المبيعات: '+money(invoices.reduce((sum,i)=>sum+(Number(i.total)||0),0));
+ return txt;
+}
+function renderReports(){
+ if(!$('reportType'))return;
+ $('reportSales').textContent=money(invoices.reduce((sum,i)=>sum+(Number(i.total)||0),0));
+ $('reportCount').textContent=invoices.length;
+ $('reportMarkets').textContent=new Set(invoices.map(i=>i.market)).size;
+ let names=[...new Set([...markets,...invoices.map(i=>i.market)])];
+ let previous=$('reportMarket').value;
+ $('reportMarket').innerHTML=names.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join('');
+ if(names.includes(previous))$('reportMarket').value=previous;
+ let type=$('reportType').value;
+ $('marketReportPicker').style.display=type==='market'?'block':'none';
+ let content='';
+ if(type==='market'||type==='all'){
+  let totals={};
+  invoices.filter(i=>type==='all'||i.market===$('reportMarket').value).forEach(i=>i.lines.forEach(l=>{
+   let k=l.productId||l.name;
+   totals[k]=totals[k]||{name:l.name,qty:0,total:0,markets:new Set()};
+   totals[k].qty+=Number(l.qty)||0;
+   totals[k].total+=(Number(l.qty)||0)*(Number(l.price)||0);
+   totals[k].markets.add(i.market);
+  }));
+  let arr=Object.values(totals).sort((a,b)=>b.qty-a.qty);
+  content=arr.length?`<table><thead><tr><th>الترتيب</th><th>الصنف</th><th>الكمية (بكت)</th><th>المبيعات</th>${type==='all'?'<th>عدد الماركتات</th>':''}</tr></thead><tbody>${arr.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name)}</td><td>${x.qty}</td><td>${money(x.total)}</td>${type==='all'?`<td>${x.markets.size}</td>`:''}</tr>`).join('')}</tbody></table>`:'<div class="empty">لا توجد مبيعات في هذا التقرير بعد.</div>';
+ } else {
+  content=invoices.length?invoices.map(i=>`<div class="item"><div><b>${esc(i.market)}</b><span class="muted">${esc(i.number||('SD-'+String(i.id).slice(-6)))} · ${esc(i.date)} · ${i.lines.length} أصناف</span><div style="margin-top:5px;font-weight:bold;color:var(--green)">${money(i.total)}</div><details><summary class="muted">تفاصيل الفاتورة</summary>${i.lines.map(l=>`<p>${esc(l.name)} — ${l.qty} بكت × ${money(l.price)} = ${money(l.qty*l.price)}</p>`).join('')}</details></div><div class="actions"><button class="secondary small-btn" onclick="editInvoice('${i.id}')">تعديل</button><button class="primary small-btn" onclick="shareInvoiceWhatsApp('${i.id}')">واتساب</button><button class="danger small-btn" onclick="deleteInvoice('${i.id}')">حذف</button></div></div>`).join(''):'<div class="empty">لا توجد فواتير.</div>';
+ }
+ $('reportContent').innerHTML=content;
+}
+function shareReportWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(buildReportText()),'_blank')}
+async function shareReport(){let txt=buildReportText();if(navigator.share){try{await navigator.share({title:'تقرير SAAD للبهارات',text:txt})}catch(e){}}else{shareReportWhatsApp()}}
+function renderStockReport(){let el=$('stockReport');if(!el)return;el.innerHTML=products.length?`<table><thead><tr><th>الصنف</th><th>المتبقي بالشاحنة (بكت)</th><th>عدد الحبات</th></tr></thead><tbody>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${Number(p.stock)||0}</td><td>${(Number(p.stock)||0)*4}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">أضف أصنافاً لعرض المخزون.</div>'}
+function renderAll(){$('statProducts').textContent=products.length;$('statInvoices').textContent=invoices.length;$('statSales').textContent=money(invoices.reduce((s,i)=>s+i.total,0));$('statMarkets').textContent=markets.length;$('recentInvoices').innerHTML=invoices.slice(0,5).map(i=>`<div class="item"><div><b>${esc(i.market)}</b><span class="muted">${esc(i.date)}</span></div><strong>${money(i.total)}</strong></div>`).join('')||'<div class="empty">لا توجد فواتير بعد.</div>';renderProducts();renderLines();renderReports();renderStockReport()}
+
+function exportData(){let blob=new Blob([JSON.stringify({products,markets,invoices},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='saad-spice-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!Array.isArray(d.products)||!Array.isArray(d.markets)||!Array.isArray(d.invoices))throw Error();products=d.products.map(p=>({...p,stock:Number(p.stock)||0,unit:'بكت (4 حبات)'}));markets=d.markets;invoices=d.invoices;persist();alert('تم استيراد النسخة الاحتياطية.')}catch(_){alert('الملف غير صالح.')}e.target.value=''};r.readAsText(f)}
+$('invoiceDate').value=new Date().toISOString().slice(0,10);renderAll();
+</script>
+</body></html>
